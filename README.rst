@@ -1,4 +1,4 @@
-Multiple context
+Multiple context.
 
 Sometimes, you want to add to your views few other datas.
 In Django, that mean addded some contexts variable throught template tags.
