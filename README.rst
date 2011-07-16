@@ -57,7 +57,7 @@ You just have to:
         class MyView(View, MultipleContextMixin):
             extra_context = (FiveLastBlogPost,)
 
-3. Add an ExtraContext in your render_to_response
+3. Add an ExtraContext in your render_to_response::
 
          def get(self,request,text):
              my_object = MyObject.objects.all()
