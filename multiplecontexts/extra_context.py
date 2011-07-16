@@ -12,4 +12,6 @@ class ExtraContext(RequestContext):
         if view is not None and hasattr(view,"get_view_processors"):
             for processor in view.get_view_processors():
                 p = processor()
-                self.update(p.get_context(request,*args,**kwargs))
+                new_context = p.get_context(request,*args,**kwargs)
+                if new_context is not None:
+                    self.update(p.get_context(request,*args,**kwargs))
