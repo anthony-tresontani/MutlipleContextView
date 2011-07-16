@@ -9,28 +9,28 @@ Even if  template tags are great, there are not always accurate and easy to  wri
 There is better to do the job.
 
 The basic django approch is to design a view for a main purpose:
- - to see an object - DetailView
- - a list of object - ListView
- ...
+* to see an object: DetailView
+* a list of object: ListView
+* etc
 
- Multiple Context allow to have views focused over multiple subjects.
+Multiple Context allow to have views focused over multiple subjects.
 
- You know why, let's see how:
+You know why, let's see how:
 
- Installation
- ------------
+Installation
+------------
 
- After downloading the package with Git, just apply::
+After downloading the package with Git, just apply::
 
     python setup.py install
 
 
- Usage
- -----
+Usage
+-----
 
- Multiple context only apply to class-based view as it work with a Mixin.
+Multiple context only apply to class-based view as it work with a Mixin.
 
- Let's say you have a base view::
+Let's say you have a base view::
 
     class MyView(View):
 
@@ -38,15 +38,15 @@ The basic django approch is to design a view for a main purpose:
             my_object = MyObject.objects.all()
             return render_to_response("myTemplate.html",RequestContext(request,{"my_object":my_object,"text":text}))
 
- And you want add to the left pane a widget with the 5 last blog post.
+And you want add to the left pane a widget with the 5 last blog post.
 
- You just have to:
+You just have to:
 
- 1. Extend the MultipleContextMixin::
+1. Extend the MultipleContextMixin::
  
         class MyView(View, MultipleContextMixin):
 
- 2. Provide a ContextProvider and add it to the extra_context argument::
+2. Provide a ContextProvider and add it to the extra_context argument::
 
         class FiveLastBlogPost(ContextProvider):
 
@@ -57,7 +57,7 @@ The basic django approch is to design a view for a main purpose:
         class MyView(View, MultipleContextMixin):
             extra_context = (FiveLastBlogPost,)
 
- 3. Add an ExtraContext in your render_to_response
+3. Add an ExtraContext in your render_to_response
 
          def get(self,request,text):
              my_object = MyObject.objects.all()
@@ -68,7 +68,7 @@ The basic django approch is to design a view for a main purpose:
                                                      text=text
                                                      ))
 
- 4. That's it
+4. That's it
 
 
 
