@@ -1,4 +1,5 @@
-Multiple context.
+Multiple context
+----------------
 
 Sometimes, you want to add to your views few other datas.
 In Django, that mean addded some contexts variable throught template tags.
@@ -10,7 +11,7 @@ There is better to do the job.
 The basic django approch is to design a view for a main purpose:
  - to see an object - DetailView
  - a list of object - ListView
- ...
+ - etc
 
  Multiple Context allow to have views focused over multiple subjects.
 
@@ -19,7 +20,7 @@ The basic django approch is to design a view for a main purpose:
  Installation
  ------------
 
- After downloading the package with Git, just apply::
+ After downloading the package with Git, just apply:
 
     python setup.py install
 
@@ -29,7 +30,7 @@ The basic django approch is to design a view for a main purpose:
 
  Multiple context only apply to class-based view as it work with a Mixin.
 
- Let's say you have a base view::
+ Let's say you have a base view:
 
     class MyView(View):
 
@@ -41,11 +42,11 @@ The basic django approch is to design a view for a main purpose:
 
  You just have to:
 
- 1. Extend the MultipleContextMixin::
+ 1. Extend the MultipleContextMixin:
  
-        class MyView(View, MultipleContextMixin):
+        class MyView(View, MultipleContextMixin): ...
 
- 2. Provide a ContextProvider and add it to the extra_context argument::
+ 2. Provide a ContextProvider and add it to the extra_context argument:
 
         class FiveLastBlogPost(ContextProvider):
 
