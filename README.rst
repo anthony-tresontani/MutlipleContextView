@@ -70,7 +70,7 @@ You just have to:
 
 4. That's it
 
-
+The main limitation of this extension is that it's not applicable into generic view.
 
 
 
